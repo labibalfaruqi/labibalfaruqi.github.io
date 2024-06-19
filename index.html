@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+
+  <input type="text" id="lname" name="lname"><br><br>
+  <button id="button" onclick="myFunction()">Click me</button>
+  <p id="demo"></p>
+  <script>
+    function myFunction() {
+        const url = 'https://api.fazpass.com/v1/otp/request';
+const data = { "phone": "085959707864", "gateway_key": "4bb3e21b-34d5-4a24-b4a4-31db633a5875" };
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoyMzczfQ.Bc868yWuMBWGsYG0zQkShaRw6Ccv5PQO4uUYFb8CANE';
+
+const xhr = new XMLHttpRequest();
+xhr.open('POST', url, false);
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.setRequestHeader('Authorization', `Bearer ${token}`);
+// xhr.onreadystatechange = function() {
+    // if (xhr.readyState === 4 && xhr.status === 200) {
+        // const response = JSON.parse(xhr.responseText);
+        // console.log(response);
+    // }
+// };
+xhr.send(JSON.stringify(data));
+
+//         var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+// var theUrl = "https://api.fazpass.com/v1/otp/request/";
+// xmlhttp.open("POST", theUrl);
+// xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+// xhr.setRequestHeader("client_id", "4444-4444-44de-4444");
+// xmlhttp.send(JSON.stringify({ "phone": "085959707864", "gateway_key": "4bb3e21b-34d5-4a24-b4a4-31db633a5875"}));
+
+
+
+
+        // var xhr = new XMLHttpRequest();
+// xhr.open("POST", "https://api.fazpass.com/v1/otp/request", false);
+// xhr.onload = // something
+// document.getElementById("button").addEventListener("click",
+    // function() {xhr.send(data)},
+    // false
+// );
+}
+    </script>
+</body>
+</html>
+
+{
+    "Email": "Your Email", (optional)
+    "phone": "Your Phone",
+    "gateway_key": "gateway from dashboard"
+}
+           
